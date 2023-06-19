@@ -41,6 +41,8 @@ int currentLife = 4;
 bool tryHealing = false;
 bool healTF = false;
 
+float speed = 4;
+
 void Update()
 {
 	int prevmode = _setmode(_fileno(stdout), _O_U16TEXT);
@@ -52,6 +54,11 @@ void Update()
 		int Curmode = _setmode(_fileno(stdout), prevmode);
 
 		return;
+	}
+
+	if (score >= 100) // 100점 넘어갈 때마다 스피드 증가
+	{
+		speed += 0.01;
 	}
 
 	if (!isObstacle) // 장애물이 있을 경우에만 체크
@@ -200,7 +207,7 @@ void MakeTree()
 {
 	if (treePos > 0) // 아직 도달하지 않았을 경우
 	{
-		treePos -= 4;
+		treePos -= speed;
 	}
 	else if (treePos <= 2)
 	{
@@ -238,7 +245,7 @@ void MovingCoin()
 {
 	if (coinPos > 0)
 	{
-		coinPos -= 4;
+		coinPos -= speed;
 	}
 	else if (coinPos <= 2)
 	{
