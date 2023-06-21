@@ -71,9 +71,9 @@ void Update()
 		}
 	}
 
-	if (!isCoin) // 코인이 있을 경우에만
+	if (!isCoin) // 코인이 있을 경우에만 체크
 	{
-		if (coinPos <= 9 && playerPos == 10)
+		if (coinPos <= 13 && playerPos == 10)
 		{
 			coin++;
 			isCoin = true;
@@ -122,7 +122,6 @@ void Update()
 	Gotoxy(0, 17);
 	cout << "스페이스바: 점프, 쉬프트키: 코인 세 개 사용하여 50% 확률로 피 회복";
 	Sleep(100);
-
 	system("cls");
 }
 

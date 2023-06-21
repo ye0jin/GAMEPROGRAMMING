@@ -1,8 +1,8 @@
 ﻿  GameLogic.cpp
 C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(61,16): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
 C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(89,13): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(191,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(210,14): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(229,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(248,14): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(190,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(209,14): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(228,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\personalProject_gamep\GameLogic.cpp(247,14): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   personalProject_gamep.vcxproj -> C:\Users\user\source\repos\personalProject_gamep\GAMEPROGRAMMING\x64\Debug\personalProject_gamep.exe
