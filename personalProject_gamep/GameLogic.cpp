@@ -7,6 +7,8 @@
 #include <windows.h>
 #include <conio.h>
 #include <time.h>
+#include <mmsystem.h>
+#pragma comment(lib,"winmm.lib")
 
 #include "GameLogic.h"
 #include "Console.h"
@@ -35,6 +37,7 @@ int coin = 0;
 bool isCoin = true;
 
 int score = 0; 
+ 
 int life[5] = { 1,1,1,1,1 };
 int currentLife = 4;
 
@@ -65,6 +68,8 @@ void Update()
 	{
 		if ((playerPos >= 8 && playerPos <= 11) && (treePos >= 0 && treePos <= 10))
 		{
+			PlaySound(L"hitHurt.wav", 0, SND_FILENAME | SND_ASYNC);
+
 			--life[currentLife];
 			--currentLife;
 			isObstacle = true;
@@ -75,13 +80,20 @@ void Update()
 	{
 		if (coinPos <= 13 && playerPos == 10)
 		{
+			PlaySound(L"pickupCoin.wav", 0, SND_FILENAME | SND_ASYNC);
+
 			coin++;
 			isCoin = true;
 		}
 	}
 	
 
-	if (GetAsyncKeyState(VK_SPACE) & 0x8000) isJump = true; // 스페이스 누르거나 슬라이드 안 하고 있을 때 점프 활성화
+	if (GetAsyncKeyState(VK_SPACE) & 0x8000 && !isJump)
+	{
+		isJump = true; // 스페이스 누르거나 슬라이드 안 하고 있을 때 점프 활성화
+		PlaySound(L"jump.wav", 0, SND_FILENAME | SND_ASYNC); // 점프 소리 재생
+	}
+
 	if (GetAsyncKeyState(VK_LSHIFT) & 0x8000 && currentLife < 4 && coin >= 3 && !tryHealing) // 피 회복
 	{
 		tryHealing = true;
@@ -93,6 +105,10 @@ void Update()
 		{
 			++currentLife;
 			life[currentLife] = 1;
+		}
+		else
+		{
+
 		}
 	}
 
@@ -112,11 +128,13 @@ void Update()
 	wcout <<L"Score: " << score << endl;
 	wcout << L"Coin: " << coin << endl;
 	wcout << L"Life: ";
+
 	for (int i = 0; i < 5; i++)
 	{
 		if (life[i] == 1) wcout<< L"♥";
 		else wcout << L"♡";
 	}
+
 	int Curmode = _setmode(_fileno(stdout), prevmode);
 	
 	Gotoxy(0, 17);

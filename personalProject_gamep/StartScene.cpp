@@ -5,13 +5,13 @@
 #include <conio.h>
 #include "StartScene.h"
 #include "Console.h"
-
+#include <mmsystem.h>
+#pragma comment(lib,"winmm.lib")
 using namespace std;
 
 void GameTitle()
 {
 	int prevmode = _setmode(_fileno(stdout), _O_U16TEXT);
-
 	wcout << L"				*｡*.。*∧,,,∧" << endl;
 	wcout << L"				ヾ(⌒(_ = •ω•)_♥" << endl << endl;
 
@@ -68,6 +68,8 @@ int MenuDraw()
 	while (true)
 	{
 		int iKey = KeyController();
+		PlaySound(L"click.wav", 0, SND_FILENAME | SND_ASYNC);
+
 		switch (iKey)
 		{
 		case (int)Key::UP:
@@ -116,4 +118,6 @@ void InfoDraw()
 	cout << "계속하시려면 아무 키나 누르세요 . . .";
 
 	char a = _getch();
+	PlaySound(L"click.wav", 0, SND_FILENAME | SND_ASYNC);
+
 }

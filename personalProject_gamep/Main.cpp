@@ -1,6 +1,8 @@
 #include <iostream>
 #include <conio.h>
 #include <Windows.h>
+#include <mmsystem.h>
+#pragma comment(lib,"winmm.lib")
 
 #include "StartScene.h"
 #include "EndScene.h"
@@ -40,17 +42,25 @@ int main()
 			cout << endl << "게임을 종료합니다." << endl;
 			for (int i = 0; i < 3; i++)
 			{
+				PlaySound(L"blipSelect.wav", 0, SND_FILENAME | SND_ASYNC);
+
 				cout << "\r" << 3 - i << ". . .";
 				Sleep(1000);
 			}
 
+			PlaySound(L"magic_03.wav", 0, SND_FILENAME | SND_ASYNC);
 			system("cls");
 			cout << endl << "게임이 종료되었습니다." << endl;
+
+			Sleep(1000);
+
 			return 0;
 		}
 
 		Sleep(100);
 	}
+
+	Sleep(300);
 	while (true)
 	{
 		Sleep(100);
@@ -64,6 +74,7 @@ int main()
 				if (score > maxScore) maxScore = score;
 				break; // 게임 오버
 			}
+
 			Update();
 			if (TryHeal(true) && waitFrame < 2)
 			{
@@ -79,12 +90,17 @@ int main()
 		Reset();
 		Sleep(200);
 		system("cls");
+		PlaySound(L"magic_03.wav", 0, SND_FILENAME | SND_ASYNC);
 
 		while (true)
 		{
 			Gotoxy(0, 1);
 			int x = GameOverDraw(score, maxScore);
-			if (x != 0) break;
+			if (x != 0)
+			{
+				PlaySound(L"click.wav", 0, SND_FILENAME | SND_ASYNC);
+				break;
+			}
 		}
 
 		Sleep(100);
